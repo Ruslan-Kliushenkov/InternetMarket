@@ -1,13 +1,14 @@
-package dao.builder;
+package service.builder;
 
-import entities.*;
+import entities.Price;
+import entities.TV;
 
-public class NotebookBuilder{
+public class TVBuilder{
     private final Price price;
     private final String model;
     private final String company;
 
-    public NotebookBuilder(Price price, String model, String company) {
+    public TVBuilder(Price price, String model, String company) {
         this.price = price;
         this.model = model;
         this.company = company;
@@ -25,40 +26,38 @@ public class NotebookBuilder{
         return company;
     }
 
-
-
     public static class Builder implements ProductBuilder{
         private Price price;
         private String model;
         private String company;
 
         @Override
-        public NotebookBuilder.Builder withCompany(String company) {
+        public TVBuilder.Builder withCompany(String company) {
             this.company = company;
             return this;
         }
 
         @Override
-        public NotebookBuilder.Builder withModel(String model) {
+        public TVBuilder.Builder withModel(String model) {
             this.model = model;
             return this;
         }
 
         @Override
-        public NotebookBuilder.Builder withPrice(Price price) {
+        public TVBuilder.Builder withPrice(Price price) {
             this.price = price;
             return this;
         }
 
         @Override
-        public Notebook toBuild() {
+        public TV toBuild() {
             if (this.company == null){
                 this.company = "Unknown company";
             }
             if (this.model == null){
                 this.model = "Unknown model";
             }
-            return new Notebook(this.price,this.model,this.company);
+            return new TV(this.price,this.model,this.company);
         }
 
     }

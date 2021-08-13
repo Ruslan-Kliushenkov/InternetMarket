@@ -1,8 +1,8 @@
 package service.factory;
 
-import dao.builder.NotebookBuilder;
-import dao.builder.PhoneBuilder;
-import dao.builder.TVBuilder;
+import service.builder.NotebookBuilder;
+import service.builder.PhoneBuilder;
+import service.builder.TVBuilder;
 import entities.Price;
 import entities.Product;
 import entities.enums.Type;

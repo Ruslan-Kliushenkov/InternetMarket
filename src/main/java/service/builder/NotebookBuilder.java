@@ -1,16 +1,13 @@
-package dao.builder;
+package service.builder;
 
-import entities.Phone;
-import entities.Price;
-import entities.Product;
-import entities.TV;
+import entities.*;
 
-public class PhoneBuilder{
+public class NotebookBuilder{
     private final Price price;
     private final String model;
     private final String company;
 
-    public PhoneBuilder(Price price, String model, String company) {
+    public NotebookBuilder(Price price, String model, String company) {
         this.price = price;
         this.model = model;
         this.company = company;
@@ -36,32 +33,32 @@ public class PhoneBuilder{
         private String company;
 
         @Override
-        public Builder withCompany(String company) {
+        public NotebookBuilder.Builder withCompany(String company) {
             this.company = company;
             return this;
         }
 
         @Override
-        public Builder withModel(String model) {
+        public NotebookBuilder.Builder withModel(String model) {
             this.model = model;
             return this;
         }
 
         @Override
-        public Builder withPrice(Price price) {
+        public NotebookBuilder.Builder withPrice(Price price) {
             this.price = price;
             return this;
         }
 
         @Override
-        public Phone toBuild() {
+        public Notebook toBuild() {
             if (this.company == null){
                 this.company = "Unknown company";
             }
             if (this.model == null){
                 this.model = "Unknown model";
             }
-            return new Phone(this.price,this.model,this.company);
+            return new Notebook(this.price,this.model,this.company);
         }
 
     }
